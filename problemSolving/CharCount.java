@@ -35,17 +35,17 @@ class CharCount {
         String[] newStr = str.split("");
         for (int i = 0; i < newStr.length; i++) {
             Integer prevValue = result.get(newStr[i].toLowerCase());
-            if (prevValue != null) {
+            if (prevValue != null && newStr[i].matches("[a-z0-9]")) {
                 prevValue++;
                 result.put(newStr[i].toLowerCase(), prevValue);
-            } else
+            } else if(newStr[i].matches("[a-z0-9]"))
                 result.put(newStr[i].toLowerCase(), 1);
         }
         return result;
     }
 
     public static void main(String[] args) {
-        System.out.println(charCount("Jerry"));
+        System.out.println(charCount("Jerry adeleye"));
     }
 
 }
