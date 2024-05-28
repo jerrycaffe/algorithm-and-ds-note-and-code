@@ -14,9 +14,9 @@ public class UncommonFromSentence {
     // loop through the hasmap and see the element which appears just once, create
     // an array and add in the value
 
-    static String[] solution(String str1, String str2) {
-        String[] strArr1 = str1.split(" ");
-        String[] strArr2 = str2.split(" ");
+    static String[] solution(String s1, String s2) {
+        String[] strArr1 = s1.split(" ");
+        String[] strArr2 = s2.split(" ");
 
         Map<String, Integer> stock = new HashMap<String, Integer>();
         for (int i = 0; i < strArr1.length; i++) {
@@ -47,9 +47,41 @@ public class UncommonFromSentence {
         return resuList.toArray(result);
     }
 
+    static String[] check(String s1, String s2) {
+
+        String[] arr1 = s1.split(" ");
+        String[] arr2 = s2.split(" ");
+        Map<String, Integer> mp = new HashMap<>();
+        for (String str : arr1) {
+            if (mp.containsKey(str)) {
+                mp.put(str, mp.get(str) + 1);
+            } else {
+                mp.put(str, 1);
+            }
+        }
+        for (String str : arr2) {
+            if (mp.containsKey(str)) {
+                mp.put(str, mp.get(str) + 1);
+            } else {
+                mp.put(str, 1);
+            }
+        }
+
+        String res = "";
+        for (Map.Entry<String, Integer> entry : mp.entrySet()) {
+            Integer result = entry.getValue();
+            if (result == 1) {
+                res += entry.getKey() + " ";
+            }
+        }
+        String[] result = res.split(" ");
+        return result;
+
+    }
+
     public static void main(String[] args) {
         String arr1 = "the name of my school is ijebu";
         String arr2 = "the name of my school is ibadan";
-        System.out.println(Arrays.toString((solution(arr1, arr2))));
+        System.out.println(Arrays.toString((check(arr1, arr2))));
     }
 }
