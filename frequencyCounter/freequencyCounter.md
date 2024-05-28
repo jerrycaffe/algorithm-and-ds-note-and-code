@@ -1,0 +1,2 @@
+It is one of the useful pattern in solving problems that has to do with arrays and strings especially when the question is asking one to count number of occurrence
+we create an object or set to store the elements in our string or array, along with how many times they occur in that string or array. 

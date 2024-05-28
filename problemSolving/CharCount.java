@@ -3,7 +3,7 @@ package problemSolving;
 import java.util.HashMap;
 
 class CharCount {
-    // Write a function which takes in a string an returns counts of each character
+    // Write a function which takes in a string and returns counts of each character
     // in the string
     static HashMap<String, Integer> naiveCharCount(String str) {
         HashMap<String, Integer> result = new HashMap<>();
