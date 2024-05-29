@@ -67,21 +67,22 @@ public class UncommonFromSentence {
             }
         }
 
-        String res = "";
+        String res = null;
         for (Map.Entry<String, Integer> entry : mp.entrySet()) {
             Integer result = entry.getValue();
             if (result == 1) {
+               res = res == null? "" : res;
                 res += entry.getKey() + " ";
             }
         }
-        String[] result = res.split(" ");
+        String[] result = res == null? new String[0] : res.split(" ");
         return result;
 
     }
 
     public static void main(String[] args) {
-        String arr1 = "the name of my school is ijebu";
-        String arr2 = "the name of my school is ibadan";
+        String arr1 = "the name of my school is";
+        String arr2 = "the name of my school is";
         System.out.println(Arrays.toString((check(arr1, arr2))));
     }
 }
